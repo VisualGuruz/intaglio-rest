@@ -1,0 +1,27 @@
+{
+  "name": "intaglio-rest",
+  "version": "0.0.0",
+  "description": "A REST service built on top of Intaglio",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SinisterMinister/intaglio-rest.git"
+  },
+  "keywords": [
+    "rest",
+    "orm"
+  ],
+  "author": "Codey Whitt <codey.whitt@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SinisterMinister/intaglio-rest/issues"
+  },
+  "dependencies": {
+    "hapi": "~1.14.0",
+    "underscore": "~1.5.2",
+    "intaglio": "git://github.com/SinisterMinister/intaglio.git#dev"
+  }
+}
