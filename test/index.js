@@ -12,4 +12,6 @@ var mysqlRepository = new Intaglio.repositories.mysql({
 ORM.create(mysqlRepository, rest.wrapper).then(function (orm) {
 	rest.server(orm, 'localhost', 8000, rest.serializers.hal('http://localhost:8000')).start();
 	console.info('Ready!');
+}, function (err) {
+	console.info(err.message);
 });
