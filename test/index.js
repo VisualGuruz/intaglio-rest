@@ -5,7 +5,7 @@ var mysqlRepository = new Intaglio.repositories.mysql({
 		host: "192.168.33.10",
 		user: "test",
 		password: "",
-		database: "test_orm"
+		database: "test_employees"
 	}),
 	ORM = Intaglio.ORM;
 
