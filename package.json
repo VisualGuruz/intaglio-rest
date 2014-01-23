@@ -22,6 +22,6 @@
   "dependencies": {
     "hapi": "~1.14.0",
     "underscore": "~1.5.2",
-    "intaglio": "~0.1.0"
+    "intaglio": "~0.4.0-rc"
   }
 }

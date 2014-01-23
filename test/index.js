@@ -3,15 +3,20 @@ var Intaglio = require('intaglio'),
 
 var mysqlRepository = new Intaglio.repositories.mysql({
 		host: "192.168.33.10",
-		user: "test",
-		password: "",
-		database: "test_employees"
+		user: "kumo",
+		password: "qN2aUPJRLnN6McY9",
+		database: "kumo_db",
+		"connectionLimit": 50
 	}),
 	ORM = Intaglio.ORM;
 
 
-ORM.create(mysqlRepository, rest.wrapper).then(function (orm) {
-	var server = rest.server(orm, 'localhost', 8000, rest.serializers.hal('http://localhost:8000'));
+ORM.create(mysqlRepository).then(function (orm) {
+	var server;
+	// Decorate the orm
+	orm.decorate(rest.decorator);
+
+	server = rest.server(orm, 'localhost', 8080, rest.serializers.hal('http://localhost:8080'));
 
 	server.route({
 		method: '*',
