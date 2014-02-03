@@ -16,6 +16,33 @@ ORM.create(mysqlRepository).then(function (orm) {
 	// Decorate the orm
 	orm.decorate(rest.decorator);
 
+	orm.extend('deployLocation', {
+		preGetHook: function () {
+			console.info('GET SHIT');
+		},
+		postGetHook: function () {
+			console.info('GOT SHIT');
+		},
+		prePostHook: function () {
+			console.info('POST SHIT');
+		},
+		postPostHook: function () {
+			console.info('POSTED SHIT');
+		},
+		prePutHook: function () {
+			console.info('PUT SHIT');
+		},
+		postPutHook: function () {
+			console.info('PUTTED SHIT');
+		},
+		preDeleteHook: function () {
+			console.info('DELETE SHIT');
+		},
+		postDeleteHook: function () {
+			console.info('DELETED SHIT');
+		}
+	});
+
 	server = rest.server(orm, 'localhost', 8080, rest.serializers.hal('http://localhost:8080'));
 
 	server.route({
