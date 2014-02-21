@@ -17,3 +17,4 @@ coverage
 public
 .idea
 *.iml
+atlassian-ide-plugin.xml
