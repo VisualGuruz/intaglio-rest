@@ -1,6 +1,6 @@
 {
   "name": "intaglio-rest",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "A REST service built on top of Intaglio",
   "main": "index.js",
   "scripts": {
