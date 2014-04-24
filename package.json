@@ -19,8 +19,10 @@
   "bugs": {
     "url": "https://github.com/VisualGuruz/intaglio-rest/issues"
   },
+	"peerDependencies": {
+		"hapi": "4.x.x"
+	},
   "dependencies": {
-    "hapi": "~4.0.0",
     "underscore": "~1.5.2",
     "intaglio": "~0.4.0",
     "rsvp": "~3.0.0"
