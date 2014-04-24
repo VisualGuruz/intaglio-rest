@@ -1,6 +1,6 @@
 {
   "name": "intaglio-rest",
-  "version": "0.3.5",
+  "version": "0.4.0",
   "description": "A REST service built on top of Intaglio",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "url": "https://github.com/VisualGuruz/intaglio-rest/issues"
   },
   "dependencies": {
-    "hapi": "~2.1.0",
+    "hapi": "~4.0.0",
     "underscore": "~1.5.2",
     "intaglio": "~0.4.0",
     "rsvp": "~3.0.0"
