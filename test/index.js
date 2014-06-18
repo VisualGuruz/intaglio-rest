@@ -1,5 +1,6 @@
 var Intaglio = require('intaglio'),
-	rest = require('../index');
+	rest = require('../index'),
+	Hapi = require('hapi');
 
 var mysqlRepository = new Intaglio.repositories.mysql({
 		host: "192.168.33.10",
@@ -12,9 +13,12 @@ var mysqlRepository = new Intaglio.repositories.mysql({
 
 
 ORM.create(mysqlRepository).then(function (orm) {
-	var server;
-	// Decorate the orm
-	orm.decorate(rest.decorator);
+	var plugin = rest(orm),
+		server = Hapi.createServer('localhost', 8080);
+
+	server.pack.register(plugin, function (err) {
+		console.error(err);
+	});
 
 	orm.extend('deployLocation', {
 		preGetHook: function () {
@@ -40,18 +44,6 @@ ORM.create(mysqlRepository).then(function (orm) {
 		},
 		postDeleteHook: function () {
 			console.info('DELETED SHIT');
-		}
-	});
-
-	server = rest.server(orm, 'localhost', 8080, rest.serializers.hal('http://localhost:8080'));
-
-	server.route({
-		method: '*',
-		path: '/{path*}',
-		handler: {
-			directory: {
-				path: 'public', listing: false, index: true
-			}
 		}
 	});
 
