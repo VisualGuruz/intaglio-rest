@@ -1,17 +1,26 @@
 var pkg = require('./package.json'),
-	server = require('./lib/server');
+	server = require('./lib/server'),
+	decorator = require('./lib/decorator');
 
 module.exports = function (orm) {
-	var register = function register (plugin, options, next) {
-		// Setup the server
-		server(orm, plugin);
+	var plugin = {
+		register: function register (plugin, options, next) {
 
-		next();
+			console.info(plugin);
+
+			// Setup the server
+			server(orm, plugin);
+
+			next();
+		}
 	};
 
+	// Decorate the ORM
+	orm.decorate(decorator);
+
 	// Add the attributes to the plugin
-	register.attributes = {pkg: pkg}
+	plugin.register.attributes = {pkg: pkg}
 
 	// Return the plugin
-	return register;
+	return plugin;
 };
