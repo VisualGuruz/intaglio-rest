@@ -6,8 +6,6 @@ module.exports = function (orm) {
 	var plugin = {
 		register: function register (plugin, options, next) {
 
-			console.info(plugin);
-
 			// Setup the server
 			server(orm, plugin);
 
